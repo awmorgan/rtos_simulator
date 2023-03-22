@@ -11,11 +11,6 @@ import (
 func main() {
 	fmt.Println("RTOS Simulator")
 
-	// Command line flags
-	addTask := flag.NewFlagSet("add", flag.ExitOnError)
-	taskPriority := addTask.Int("p", 0, "Task priority")
-	taskDuration := addTask.Int("d", 0, "Task duration")
-
 	// Create a new scheduler
 	scheduler := NewScheduler()
 
@@ -39,7 +34,16 @@ func main() {
 
 		switch args[0] {
 		case "add":
-			addTask.Parse(args[1:])
+			addTask := flag.NewFlagSet("add", flag.ExitOnError)
+			taskPriority := addTask.Int("p", 0, "Task priority")
+			taskDuration := addTask.Int("d", 0, "Task duration")
+
+			err = addTask.Parse(args[1:])
+			if err != nil {
+				fmt.Println("Error parsing flags:", err)
+				continue
+			}
+
 			if *taskPriority <= 0 || *taskDuration <= 0 {
 				fmt.Println("Invalid task priority or duration. Must be greater than 0.")
 				continue
