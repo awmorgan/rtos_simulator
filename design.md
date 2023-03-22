@@ -19,9 +19,6 @@ To build and run the application, use the following commands:
 go build -o rtos_simulator
 ./rtos_simulator
 
-csharp
-Copy code
-
 To add tasks and run the scheduler, use the following commands:
 
 ./rtos_simulator add -p <priority> -d <duration>
