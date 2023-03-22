@@ -1,6 +1,6 @@
 # Real-Time Operating System (RTOS) Simulator
 
-The RTOS simulator is a command-line application that simulates a real-time operating system. It will manage tasks with different priorities and run them according to a scheduling algorithm.
+The RTOS simulator is a command-line application that simulates a real-time operating system. It manages tasks with different priorities and runs them according to a priority-based scheduling algorithm.
 
 ## Components
 
@@ -10,5 +10,20 @@ The RTOS simulator is a command-line application that simulates a real-time oper
 
 ## Scheduling Algorithm
 
-The simulator will use a priority-based scheduling algorithm. Higher priority tasks will run before lower priority tasks. Tasks with the same priority will run in a first-come, first-served order.
+The simulator uses a priority-based scheduling algorithm. Tasks with higher priorities run before tasks with lower priorities. Tasks with the same priority run in a first-come, first-served order.
+
+## Usage
+
+To build and run the application, use the following commands:
+
+go build -o rtos_simulator
+./rtos_simulator
+
+csharp
+Copy code
+
+To add tasks and run the scheduler, use the following commands:
+
+./rtos_simulator add -p <priority> -d <duration>
+./rtos_simulator run
 
